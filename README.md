@@ -133,17 +133,31 @@ playwright-ai-reporter/
 
 ## Running in CI with GitHub Actions
 
-The workflow runs on every push to `main` and on pull requests.
+The workflow runs automatically on every push to `main` and on pull requests.
 
-Add your API key as a repository secret:
+### 1. Add your API key as a repository secret
 
 ```
 Settings → Secrets and variables → Actions → New repository secret
-Name: GROQ_API_KEY
+Name:  GROQ_API_KEY
 Value: your_key_here
 ```
 
-The workflow will:
-1. Install dependencies and Chromium
-2. Run all Playwright tests
-3. Upload the HTML report and `ai-diagnosis.md` as artifacts
+> Get your free key at [console.groq.com](https://console.groq.com) — no credit card required.
+
+### 2. Run the pipeline manually
+
+Go to your repo on GitHub:
+
+```
+Actions → Playwright Tests → Run workflow → Run workflow
+```
+
+### What the workflow does
+
+1. Installs dependencies and Chromium
+2. Runs all Playwright tests with the AI reporter active
+3. Uploads the HTML report as an artifact (always)
+4. Uploads `ai-diagnosis.md` as an artifact (only when there are failures)
+
+> `ai-diagnosis.md` won't appear as an artifact if all tests pass — that's expected.
