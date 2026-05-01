@@ -153,6 +153,28 @@ Go to your repo on GitHub:
 Actions → Playwright Tests → Run workflow → Run workflow
 ```
 
+### 3. Switch AI provider in CI
+
+The pipeline reads `AI_PROVIDER` from a **repository variable** (not a secret). To change it:
+
+```
+Settings → Secrets and variables → Actions → Variables → New repository variable
+Name:  AI_PROVIDER
+Value: groq | claude | openai
+```
+
+Then add the matching API key as a secret:
+
+| `AI_PROVIDER` | Secret required |
+|---|---|
+| `groq` (default) | `GROQ_API_KEY` |
+| `claude` | `ANTHROPIC_API_KEY` |
+| `openai` | `OPENAI_API_KEY` |
+
+If `AI_PROVIDER` is not set, the pipeline defaults to `groq`.
+
+---
+
 ### What the workflow does
 
 1. Installs dependencies and Chromium
