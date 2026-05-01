@@ -26,7 +26,7 @@ test.describe('Cart', () => {
     await cartPage.addProductByIndex(0);
     await cartPage.addProductByIndex(1);
     await cartPage.cartIcon.click();
-    await expect(cartPage.cartItems).toHaveCount(5);
-    await expect(cartPage.cartBadge).toHaveText('5');
+    await expect(cartPage.cartItems).toHaveCount(2);
+    await expect(cartPage.cartBadge).toHaveText('2');
   });
 });

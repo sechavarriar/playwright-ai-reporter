@@ -11,7 +11,7 @@ test.describe('Login', () => {
     await loginPage.goto();
     await loginPage.login('standard_user', 'wrong_password');
     await expect(loginPage.errorMessage).toBeVisible();
-    await expect(loginPage.errorMessage).toContainText('Invalid username or password');
+    await expect(loginPage.errorMessage).toContainText('Username and password do not match');
   });
 
   test('locked out user sees lock message', async ({ loginPage }) => {
