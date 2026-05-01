@@ -1,0 +1,22 @@
+{
+  "name": "playwright-ai-reporter",
+  "version": "1.0.0",
+  "description": "Playwright reporter that uses AI to automatically analyze test failures and suggest fixes",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.19.17",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "dotenv": "^16.4.7",
+    "groq-sdk": "^0.8.0",
+    "openai": "^4.77.0"
+  }
+}
